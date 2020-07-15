@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<p th:text="#{greeting(${name})}"></p>
+	<p th:if="${name.length() gt 10}">
+		Wow! You've got a long name (more than 10 chars)! <br />
+	</p>
+	<p>
+		You have been successfully subscribed to the <b>Fake newsletter</b> on
+		<span th:text="${#dates.format(subscriptionDate, 'yyyy-MM-dd HH:mm:ss')}"></span>
+	</p>
+	<p>Your hobbies are:</p>
+	<ul>
+		<li th:each="hobby : ${hobbies}" th:text="${hobby}"></li>
+	</ul>
+	<p>
+		You can find <b>your inlined image</b> just below this text.
+	</p>
+	<p>
+		<img th:src="|cid:${imageResourceName}|" />
+	</p>
+	<p>
+		Regards, <br /> &emsp; <em>The Thymeleaf Team</em>
+	</p>
+</body>
+</html>
